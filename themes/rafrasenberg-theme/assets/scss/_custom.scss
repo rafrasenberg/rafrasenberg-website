@@ -1,0 +1,47 @@
+.front-page {
+    img {
+        margin-top:1em;
+    }
+
+    h1 {
+        margin-top:2em;
+    }
+
+    p {
+        margin-bottom:2.5em;
+        font-size:1.3em;
+    }
+
+    a {
+        text-decoration:none;
+    }
+
+    .image-container {
+        padding:5em;
+
+        @media #{$media-size-tablet} {
+            padding:0em;
+        }
+    }
+
+    button {
+        // display:inline-block;
+        margin:auto;
+        font-size:1.8em;
+        width: 10em;
+        padding: 0.5em 1.6em 0.5em 1.6em;
+        margin-bottom:0.7em;
+    }
+
+    // .button-left {
+    //     margin-right:1em;
+    // }
+
+    // .button-right {
+    //     margin-left:1em;
+    // }
+
+    .socials {
+        margin-top:5em;
+    }
+}

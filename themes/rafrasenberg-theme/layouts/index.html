@@ -1,0 +1,30 @@
+{{ define "main" }}
+    <main aria-role="main">
+        <div class="front-page">
+
+            <div class="image-container">
+                {{ if .Site.Params.Portrait.Path }}
+                <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="Raf Rasenberg" />
+                {{ end }}
+            </div>
+
+            <h1>{{ .Site.Title }}</h1>
+            {{- with .Site.Params.homeSubtitle }}
+                <p>{{.}}</p>
+            {{- end }}
+
+            <div>
+                <a href="/about"><button>About me</button></a>
+                <a href="/posts"><button>Blog</button></a>
+            </div>
+            
+
+            {{- with .Site.Params.social }}
+                <div class="socials">
+                    {{ partial "social-icons.html" . }}
+                </div>
+            {{- end }}
+
+        </div>
+    </main>
+{{ end }}
