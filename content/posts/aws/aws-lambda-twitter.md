@@ -1,5 +1,5 @@
 ---
-title: "AWS Lambda function to retrieve Twitter followers count"
+title: "AWS Lambda function to retrieve Twitter follower count"
 date: 2020-08-29T09:28:55+02:00
 draft: false
 toc: false
@@ -10,14 +10,18 @@ tags:
 ---
 
 ## Intro :point_down:
-One of my goals for this current year is to become comfortable with AWS and get certified eventually. Therefore I will be trying out different things and blogging about it here so I can reference back at it in a later stage. :)
+One of my goals for this current year is to become comfortable with AWS and get certified eventually. Therefore I will be trying out different things and blogging about it here.
 
 I am starting out with a quite simple task and that is deploying an **AWS Lambda function**. In this case an AWS Lambda function that retrieves the count of your current Twitter followers. 
 
-Everytime the AWS API endpoint gets called, a Python script will run that will retrieve the current information from the Twitter API and return it in JSON format so it can be easily used on your website.
+Everytime the AWS API endpoint gets called, a Python script will run that will retrieve the current information from the Twitter API and return it in JSON format so it can be easily across systems.
+
+**Disclaimer:** I am not an expert in AWS, still learning. So I might not use best practices everywhere.
 
 ## What is an AWS Lambda function? :large_orange_diamond:
+
 From the docs:
+
 > AWS Lambda is a serverless compute service that runs your code in response to events and automatically manages the underlying compute resources for you.
 
 The code you run on AWS Lambda is called a "Lambda function". Lambda **runs your code on high-availability compute infrastructure** and performs all the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, code and security patch deployment, and code monitoring and logging.
@@ -35,13 +39,13 @@ In this post we will use the first one, a HTTP request via the Amazon API Gatewa
 
 In order to set-up the Lambda function you need to create an AWS account. Login using your existing account or sign up for a new account using [this link](https://console.aws.amazon.com/).
 
-After the initial set-up of your account, click on the menu link ***Services* --> *Compute* --> *Lambda***.
+After the initial set-up of your account, follow the menu link ***Services***, then under the heading ***Compute*** click on the link ***Lambda***.
 
 On the left side you are greeted with a small menu, go to ***Functions***. Here we will create the base of the function and give it a name. Later on we are deploying our actual Python code from the command line using the AWS CLI tool.
 
 ![create AWS Lambda function](/images/blog/1/image1.png)
 
-Name the function `getTwitterFollowerCount` and at runtime choose Python 3.8, since we are using Python code later on. AWS Lambda has all the popular languages available so you can pick whatever you like :D Just note that we will be doing it using Python.
+Name the function `getTwitterFollowerCount` and at runtime choose Python 3.8, since we are using Python code later on. AWS Lambda has all the major languages available, so you can easily pick another one if you would prefer that.
 
 At the permission section make sure you pick the first option: "Create a new role with basic Lambda permissions". Now finalize it and create the actual function by going to the top-right side of the page and click ***Create Function***. 
 
@@ -49,7 +53,7 @@ Congrats you have made your first AWS Lambda Function! :trophy:
 
 ## Testing our new function :white_check_mark:
 
-Alrighty, time to test our new function! If everything went correct you will be greeted with a controlpanel of the function you have just made similar to the one below here.
+Alrighty, time to test our new function. If everything went correct you will be greeted with a controlpanel of the function you have just made similar to the one below.
 
 ![controlpanel AWS Lambda function](/images/blog/1/image2.png)
 
@@ -237,4 +241,6 @@ $ {
 }
 ```
 
-Easy peasy, lemon squeezy. You now have a serverless function running on AWS Lambda that you can call from anywhere you want without the need of any server. See you next time.
+Easy peasy, lemon squeezy. You now have a serverless function running on AWS Lambda that you can call from anywhere you want without the need of any server. 
+
+See you next time. :wave:
