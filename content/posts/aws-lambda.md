@@ -33,4 +33,4 @@ The update the function code
 aws lambda update-function-code --function-name getFollowerCount --zip-file fileb://function.zip
 ```
 
-https://j3kxcrii3j.execute-api.eu-central-1.amazonaws.com/default/getFollowerCount
+<!-- https://j3kxcrii3j.execute-api.eu-central-1.amazonaws.com/default/getFollowerCount -->
