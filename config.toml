@@ -85,7 +85,7 @@ disableHugoGeneratorInject = false
     logoHomeLink = "/"
 
   [params.portrait]
-    Path = "/images/profile.jpg"
+    Path = "/images/profilepic.jpeg"
 
   # Social icons
   [[params.social]]
