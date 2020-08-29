@@ -103,8 +103,12 @@ img {
   }
   &.circle {
     border-radius: 50%;
-    max-width: 25%;
+    max-width: 15%;
     margin: auto;
+
+    @media #{$media-size-desktop} {
+      max-width: 25%;
+    }
   }
 }
 

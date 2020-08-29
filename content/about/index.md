@@ -5,11 +5,11 @@ draft: true
 ---
 
 ## Coding
-I am Raf Rasenberg, a Dutch 🇳🇱 freelance Web Developer & content creator. Specialized in building out full-stack web applications using Django & JavaScript. 
+I am Raf Rasenberg, a Dutch 🇳🇱 freelance Web Developer & content creator. I love to build out full-stack web applications using Django & JavaScript. 
 
 #### Skills
 - **Front-end:** HTML, SCSS, Vanilla JavaScript, Bootstrap
-- **Back-end:** Python, Golang, Django, PostgreSQL, Redis
+- **Back-end:** Python, Django, Node.js, Express, MongoDB, PostgreSQL, Redis
 - **Cloud:** AWS, GCP
 - **CMS:** Wagtail, WordPress
 - **Other:** Bash, Linux SysAdmin, Git, Nginx, Gunicorn, Sentry
