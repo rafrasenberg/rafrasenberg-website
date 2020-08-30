@@ -153,7 +153,7 @@ def lambda_handler(event, context):
     }
 ```
 
-Make sure to replace the variables with your credentials and Twitter handle. The Python code is quite simple, let me explain shortly what is going on here:
+Make sure to replace the variables with your credentials (I used fake credentials in this post, obviously) and Twitter handle. The Python code is quite simple, let me explain shortly what is going on here:
 
 1. We create an API instance with the credentials
 2. We use the `GetUser` API endpoint to get data based on the Twitter handle
