@@ -74,7 +74,7 @@ Create a new file in your project root called `zappa_settings.json`. This is bas
 }
 ```
 
-This defines an environment called 'dev' (later, you may want to add 'staging' and 'production' environments as well). It also defines the name of the S3 bucket we will be deploying to, and points Zappa to a WSGI-compatible function, in this case, our Flask app object.
+This defines an environment called 'dev' (later, you may want to add 'staging' and 'production' environments as well). It also defines the name of the S3 bucket we will be deploying to. And at last it points Zappa to a WSGI-compatible function, in this case, our Flask app object.
 
 And now we are ready to deploy! **Wait a minute.. WHAAAATTTT?!** Are you messing with me Raf? 
 
