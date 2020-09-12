@@ -12,9 +12,9 @@ tags:
 ---
 
 ## Intro :point_down:
-In this blog post we will look at an awesome deployment tool called Zappa. We will deploy a **serverless microservice** in Flask on AWS in under 3 minutes. 
+In this blog post we are going to take a look at an awesome deployment tool called Zappa. We will deploy a **serverless microservice** using Flask on AWS in under 3 minutes. Exciting.
 
-Our little microservice will be an AWS API endpoint that returns a dataset of a random person in the form of a JSON response. You can view the [source code here](https://github.com/webconexus/flask-zappa-serverless). Let's start!
+Our little microservice will be an API endpoint that returns a dataset of a random person in the form of a JSON response. You can view the [source code here](https://github.com/webconexus/flask-zappa-serverless). Let's start!
 
 
 #### Prerequisites:
@@ -23,12 +23,12 @@ Our little microservice will be an AWS API endpoint that returns a dataset of a 
 - Virtualenv installed
 
 ## What is Zappa? :mag:
-Zappa makes it super easy to build and deploy server-less, event-driven Python applications (including, but not limited to, WSGI web apps) on AWS Lambda + API Gateway. 
+Zappa is a tool that makes it very easy to build and deploy server-less, event-driven Python applications on AWS Lambda + API Gateway. 
 
 Think of it as "serverless" web hosting for your Python apps. That means infinite scaling, zero downtime, zero maintenance - and at a fraction of the cost of your current deployments.
 
 ## Setting up the project :white_check_mark:
-Alright so the first thing we need to do is create a virtual envirnmont and install Flask and Zappa. I always add the src folder containes the app files inside the virtualenv folder so everything stays organised at the same location, but you can ofcourse choose to do it otherwise.
+The first thing we need to do is creating a virtual environmont where we install Flask and Zappa. To keep things organised I like to add my `src` folder that contains the app files inside the virtualenv folder.
 
 ```python
 $ virtualenv -p python3 persongenerator
@@ -37,7 +37,7 @@ $ mkdir src && cd src
 $ pip install flask zappa
 ```
 
-Now create a new file called `app.py` and use the code snippet down below. The Flask code is fairly easy, we create a Flask object and attach a route decorator function to it to define our path. Which is in this case "/" and thus the root. 
+After you have run the commands above, create a new file called `app.py` and add the code snippet down below. The Flask code is fairly easy, we create a Flask object and attach a route decorator function to it to define our path. Which is in this case "/" and thus the root. 
 
 ```python
 from flask import Flask
