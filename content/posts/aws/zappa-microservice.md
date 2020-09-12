@@ -1,9 +1,11 @@
 ---
 title: "Deploying a serverless microservice with Flask & Zappa"
+description: "In this blog we will take a look at Zappa and deploy a serverless microservice using Flask on AWS in under 3 minutes."
 date: 2020-09-12T10:15:46+02:00
-draft: true
+draft: false
 toc: false
 images:
+  - /images/blog/2/header.png
 tags:
   - AWS
   - Python
@@ -76,15 +78,15 @@ Create a new file in your project root called `zappa_settings.json`. This is bas
 
 This defines an environment called 'dev' (later, you may want to add 'staging' and 'production' environments as well). It also defines the name of the S3 bucket we will be deploying to. And at last it points Zappa to a WSGI-compatible function, in this case, our Flask app object.
 
-And now we are ready to deploy! **Wait a minute.. WHAAAATTTT?!** Are you messing with me Raf? 
+And now we are ready to deploy! **Wait a minute.. WHAAAATTTT?!** :scream:
 
-No I kid you not. Run the following command:
+Yup, not joking. Run the following command:
 
 ```
 $ zappa deploy dev
 ```
 
-And our microservice is alive! You will see in your command line prompt which URL endpoint. That is quick! :fire::fire:
+And our microservice is alive. You will see in your command line prompt which URL endpoint. That is quick! :fire::fire:
 
 Alright.. slow down there. What is actually going on behind the scenes when we run the command `zappa deploy dev`?
 
@@ -94,7 +96,7 @@ Alright.. slow down there. What is actually going on behind the scenes when we r
 2. Then it will set up the function handler and necessary WSGI Middleware
 3. Upload the archive to S3
 4. Create and manage the necessary Amazon IAM policies and roles and register it as a new Lambda function
-5. Create a new API Gateway resource, create WSGI-compatible routes for it and link it to the new Lambda function.
+5. Create a new API Gateway resource, create WSGI-compatible routes for it and link it to the new Lambda function
 6. And at last, delete the archive from your S3 bucket. Handy!
 
 Now you know why we need that S3 bucket. It is only used as a temporary tool for the deployment as there are no files in there. 
