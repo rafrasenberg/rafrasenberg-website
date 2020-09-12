@@ -28,7 +28,7 @@ Zappa is a tool that makes it very easy to build and deploy server-less, event-d
 Think of it as "serverless" web hosting for your Python apps. That means infinite scaling, zero downtime, zero maintenance - and at a fraction of the cost of your current deployments.
 
 ## Setting up the project :white_check_mark:
-The first thing we need to do is creating a virtual environmont where we install Flask and Zappa. To keep things organised I like to add my `src` folder that contains the app files inside the virtualenv folder.
+The first thing we need to do is creating a virtual environment where we install Flask and Zappa. To keep things organised I like to add my `src` folder that contains the app files inside the virtualenv folder.
 
 ```python
 $ virtualenv -p python3 persongenerator
@@ -37,7 +37,7 @@ $ mkdir src && cd src
 $ pip install flask zappa
 ```
 
-After you have run the commands above, create a new file called `app.py` and add the code snippet down below. The Flask code is fairly easy, we create a Flask object and attach a route decorator function to it to define our path. Which is in this case "/" and thus the root. 
+After you have ran the commands above, create a new file called `app.py` and add the code snippet down below. The Flask code is fairly straight-forward, we create a Flask object and attach a route decorator function to it which defines our path. Which is in this case "/" and thus the homepage. 
 
 ```python
 from flask import Flask
@@ -57,7 +57,7 @@ You can confirm that your hello world app is working by running `flask run` and 
 Alright neat, it's working. Time to deploy!
 
 ## Ready, set.. DEPLOY! :rocket:
-First make sure that you have created an AWS S3 bucket for this app. You can do so by following the menu link ***Services***, then under the heading ***Storage*** click on the link ***S3*** in your AWS console. 
+First make sure that you have created an AWS S3 bucket for this app. You can do so by going to the AWS console and then in the top menu following the link ***Services***. Then under the heading ***Storage*** click on the link ***S3***. 
 
 Click the ***Create bucket*** button and add a bucket. 
 
@@ -78,7 +78,7 @@ This defines an environment called 'dev' (later, you may want to add 'staging' a
 
 And now we are ready to deploy! **Wait a minute.. WHAAAATTTT?!** Are you messing with me Raf? 
 
-No I kid you not! Run the following command:
+No I kid you not. Run the following command:
 
 ```
 $ zappa deploy dev
@@ -88,7 +88,9 @@ And our microservice is alive! You will see in your command line prompt which UR
 
 Alright.. slow down there. What is actually going on behind the scenes when we run the command `zappa deploy dev`?
 
-1. Zappa will automatically package up your application and local virtual environment into a Lambda-compatible archive and replace any dependencies with versions precompiled for Lambda
+#### Zappa will:
+
+1. Automatically package up your application and local virtual environment into a Lambda-compatible archive and replace any dependencies with versions precompiled for Lambda
 2. Then it will set up the function handler and necessary WSGI Middleware
 3. Upload the archive to S3
 4. Create and manage the necessary Amazon IAM policies and roles and register it as a new Lambda function
@@ -99,10 +101,10 @@ Now you know why we need that S3 bucket. It is only used as a temporary tool for
 
 Let's expand our "Hello World" microservice and create a random person generator in the next part.
 
-## Create random person generator :busts_in_silhouette:
+## Creating a random person generator :busts_in_silhouette:
 First, create a file in your project root called `functions.py`. Here we will add the logic for our app, instead of stuffing it into the Flask view.
 
-I fired up Google and searched for a list of popular first and last names. These I added in two text files called `first_name.txt` and `last_name.txt`. You can find these text files in the Github repo! 
+I fired up Google and searched for a list of popular first and last names. These I added in two text files called `first_name.txt` and `last_name.txt`. You can find these text files in the [Github repo](https://github.com/webconexus/flask-zappa-serverless)! 
 
 So we need a little function that runs and selects one random name out of one of those text files (since we want a random first name & last name). Let's write the code.
 
