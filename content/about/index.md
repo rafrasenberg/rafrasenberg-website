@@ -17,7 +17,7 @@ Back-end and Dev-Ops is where I am the most comfortable and what I enjoy the mos
 - **Dev-Ops:** Docker, Git, Gitlab, Travis, Sentry, Pytest, Coverage.py, flake8, Black, isort
 - **Other:** Bash, Linux SysAdmin, Nginx, Gunicorn, Supervisor
 
-> :email: Interested in working together? Shoot me a message: rafrasenberg@gmail.com
+> :email: Interested in working together? Shoot me a message: hello@rafrasenberg.com
 
 ## Personal interests
 Besides my passion for coding I have a big passion for fitness. On my socials I preach about it a lot and I believe that (especially) developers, should be more conscious about the long-tem postive effects of staying active and maintaining a healthy work/life balance. 
