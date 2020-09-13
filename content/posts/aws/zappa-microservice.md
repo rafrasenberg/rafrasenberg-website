@@ -16,7 +16,7 @@ tags:
 ## Intro :point_down:
 In this blog post we are going to take a look at an awesome deployment tool called Zappa. We will deploy a **serverless microservice** using Flask on AWS in under 3 minutes. Exciting.
 
-Our little microservice will be an API endpoint that returns a dataset of a random person in the form of a JSON response. You can view the [source code here](https://github.com/webconexus/flask-zappa-serverless). Let's start!
+Our little microservice will be an API endpoint that returns a dataset of a random person in the form of a JSON response. You can view the [source code here](https://github.com/rafrasenberg/flask-zappa-serverless). Let's start!
 
 
 #### Prerequisites:
@@ -106,7 +106,7 @@ Let's expand our "Hello World" microservice and create a random person generator
 ## Creating a random person generator :busts_in_silhouette:
 First, create a file in your project root called `functions.py`. Here we will add the logic for our app, instead of stuffing it into the Flask view.
 
-I fired up Google and searched for a list of popular first and last names. These I added in two text files called `first_name.txt` and `last_name.txt`. You can find these text files in the [Github repo](https://github.com/webconexus/flask-zappa-serverless)! 
+I fired up Google and searched for a list of popular first and last names. These I added in two text files called `first_name.txt` and `last_name.txt`. You can find these text files in the [Github repo](https://github.com/rafrasenberg/flask-zappa-serverless)! 
 
 So we need a little function that runs and selects one random name out of one of those text files (since we want a random first name & last name). Let's write the code.
 

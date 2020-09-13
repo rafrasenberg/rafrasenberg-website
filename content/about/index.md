@@ -13,8 +13,8 @@ Back-end and Dev-Ops is where I am the most comfortable and what I enjoy the mos
 - **Front-end:** HTML, SCSS, JavaScript, Bootstrap
 - **Back-end:** Python, Django, Flask, PostgreSQL, Redis
 - **CMS:** Wagtail CMS, WordPress
-- **Cloud:** AWS, GCP
-- **Dev-Ops:** Docker, Git, Gitlab, Travis, Sentry, Pytest, Heroku, Digital Ocean, Coverage.py, flake8, Black, isort
+- **Cloud:** AWS, GCP, Heroku, Digital Ocean
+- **Dev-Ops:** Docker, Git, Gitlab, Travis, Sentry, Pytest, Coverage.py, flake8, Black, isort
 - **Other:** Bash, Linux SysAdmin, Nginx, Gunicorn, Supervisor
 
 > :email: Interested in working together? Shoot me a message: rafrasenberg@gmail.com
