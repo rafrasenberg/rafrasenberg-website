@@ -14,7 +14,7 @@ Back-end and Dev-Ops is where I am the most comfortable and what I enjoy the mos
 - **Back-end:** Python, Django, Flask, PostgreSQL, Redis
 - **CMS:** Wagtail CMS, WordPress
 - **Cloud:** AWS, GCP, Heroku, Digital Ocean
-- **Dev-Ops:** Docker, Git, Gitlab, Travis, Sentry, Pytest, Coverage.py, flake8, Black, isort
+- **Dev-Ops:** Docker, Git, Gitlab, Travis, Sentry, Pytest
 - **Other:** Bash, Linux SysAdmin, Nginx, Gunicorn, Supervisor
 
 > :email: Interested in working together? Shoot me a message: hello@rafrasenberg.com
