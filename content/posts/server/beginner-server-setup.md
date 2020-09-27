@@ -35,7 +35,7 @@ There are multiple cloud providers available that offer virtual cloud machines. 
 
 In this post we will use my personal favourite: Digital Ocean! :heart:
 
-Besides being one of my favourite cloud providers, you also get \$100 worth of credit for free if you sign up through [this referral link](https://m.do.co/c/52031fcadf3c). Can't get any better than that right?
+Besides being one of my favourite cloud providers, you also get $100 worth of credit for free if you sign up through [this referral link](https://m.do.co/c/52031fcadf3c). Can't get any better than that right?
 
 Exactly, that's what I thought. So let's start! :fire:
 
@@ -112,7 +112,7 @@ After that click on the button in the top right corner **_Create_** and from the
 
 DigitalOcean Droplets are Linux-based virtual machines (VMs) that run on top of virtualized hardware. Each Droplet you create is a new server you can use, either standalone or as part of a larger, cloud-based infrastructure.
 
-When adding your droplet, make sure you choose Ubuntu 20.04 as the image and pick the standard \$5 plan. When scrolling down make sure you select your SSH key as well, that you previously added in your account and give your server a cool hostname! :cool:
+When adding your droplet, make sure you choose Ubuntu 20.04 as the image and pick the standard $5 plan. When scrolling down make sure you select your SSH key as well, that you previously added in your account and give your server a cool hostname! :cool:
 
 View the GIF below to see the full walkthrough.
 
