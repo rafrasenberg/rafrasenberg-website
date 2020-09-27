@@ -17,19 +17,11 @@ In two previous blog posts, we explored the ease of deploying serverless functio
 
 However besides the whole "serverless hype" we are seeing right now in the tech world, a lot of projects still require a traditional cloud VM.
 
-You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase that well. Luckily for us non-cool folks going "server" instead of "serverless" is just as easy! :smile:
-
-When I first started coding a couple of years ago, setting up a server was one of the first pain points I encountered. I had to deploy a simple project and spinned up a server. Immediately I got struck with some questions:
-
-- How should I secure this?
-- Initial set-up?
-- Best practices?
+You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase. Luckily for us non-cool folks going "server" instead of "serverless" is just as easy! :smile:
 
 So let's go over that in this blog post! :rocket:
 
-**Prerequisites:**
-
-- Bash/zsh terminal. This can be on your Linux machine, Mac OS or Windows Linux Subsystem
+**Note:** To follow this tutorial I assume you have a terminal available. This can be on your Linux machine, Mac OS or Windows Linux Subsystem.
 
 ## 1. What are the options :question:
 
