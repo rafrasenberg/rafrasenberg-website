@@ -15,11 +15,11 @@ tags:
 
 In two previous blog posts, we explored the ease of deploying serverless functions. These are obviously a great way of removing the hassle of maintaining a server and most of the times also reducing the running costs.
 
-However besides the whole "serverless hype" we are seeing right now in the tech world, a lot of projects still require a traditional cloud VM.
+However besides the whole **"serverless hype"** we are seeing right now in the tech world, a lot of projects still require a traditional cloud VM.
 
-You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase. Luckily for us non-cool folks going "server" instead of "serverless" is just as easy! :smile:
+You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase. Luckily for us non-cool folks going _server_ instead of _serverless_ is just as easy! :smile:
 
-So let's go over that in this blog post! :rocket:
+So let's go over that in this blog post!
 
 **Note:** To follow this tutorial I assume you have a terminal available. This can be on your Linux machine, Mac OS or Windows Linux Subsystem.
 
@@ -35,7 +35,7 @@ There are multiple cloud providers available that offer virtual cloud machines. 
 
 In this post we will use my personal favourite: Digital Ocean! :heart:
 
-Besides being one of my favourite cloud providers, you also get **\$100 worth of credit for free** if you sign up through [this referral link](https://m.do.co/c/52031fcadf3c). Can't get any better than that right?
+Besides being one of my favourite cloud providers, you also get \$100 worth of credit for free if you sign up through [this referral link](https://m.do.co/c/52031fcadf3c). Can't get any better than that right?
 
 Exactly, that's what I thought. So let's start! :fire:
 
@@ -88,9 +88,9 @@ The public key is now located in `/home/raf/.ssh/id_rsa.pub`. The private key (i
 
 ## 3. Adding the key to our Digital Ocean account & launching the droplet :file_folder:
 
-Next up is adding our new key to our Digital Ocean account through their GUI. The benefit of this is that whenever you spin up a droplet, it will automatically copy the key to the new server! Saving you from doing that manually. Which makes life easier.
+Next up is adding our new key to our Digital Ocean account through their GUI. The benefit of this is that whenever you spin up a droplet, it will automatically copy the key to the new server! Saving you from doing that manually, which makes life easier.
 
-The first thing we have to do is get our public key. We can do that by running the following command:
+The first thing we have to do is getting our public key. We can do that by running the following command:
 
 ```
 $ cat ~/.ssh/id_rsa.pub
@@ -104,13 +104,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/aOIJUaUUiZP0KA4vslD97oNVzVYZAiZTTG2Z3ozi
 
 Now [sign up for Digital Ocean](https://m.do.co/c/52031fcadf3c) and set-up your account.
 
-After you have logged into the dashboard, head over to your **_Settings_** and click the tab **_Security_**. After that click on **_Add SSH key_**. This will open up a modal where you can paste the public key in that you got from the previous terminal command. Make sure to save it.
+After you have logged into the dashboard, head over to your **_Settings_** and click the tab **_Security_**. After that click on **_Add SSH key_**. This will open up a modal where you can paste the public key in. Make sure to save it.
 
 ![Digital Ocean dashboard](/images/blog/3/image1.png)
 
-After that click on the button in the top right corner **_Create_** and from the dropdown choose **_Droplet_**. DigitalOcean Droplets are Linux-based virtual machines (VMs) that run on top of virtualized hardware. Each Droplet you create is a new server you can use, either standalone or as part of a larger, cloud-based infrastructure.
+After that click on the button in the top right corner **_Create_** and from the dropdown choose **_Droplet_**.
 
-When adding your droplet, make sure you choose Ubuntu 20.04 as the image and pick the standard \$5 dollar plan. When scrolling down make sure you add your SSH key as well, that you previously added in your account and give your server a cool hostname! :cool:
+DigitalOcean Droplets are Linux-based virtual machines (VMs) that run on top of virtualized hardware. Each Droplet you create is a new server you can use, either standalone or as part of a larger, cloud-based infrastructure.
+
+When adding your droplet, make sure you choose Ubuntu 20.04 as the image and pick the standard \$5 plan. When scrolling down make sure you select your SSH key as well, that you previously added in your account and give your server a cool hostname! :cool:
 
 View the GIF below to see the full walkthrough.
 
@@ -126,9 +128,9 @@ If everything went well you should see a droplet instance in your Digital Ocean 
 $ ssh root@167.23.10.37
 ```
 
-It should ask for a password. This is the password that you set-up for your SSH key in step 1. Accept the warning about host authenticity if it appears. You should now be logged in as the root user on your very own cloud server. How cool is that! :tada:
+It should ask for a password. This is the password that you set-up for your SSH key in step 2. Accept the warning about host authenticity if it appears. You should now be logged in as the root user on your very own cloud server. How cool is that! :tada:
 
-Root is the superuser account in Unix and Linux. It is a user account for administrative purposes, and typically has the highest access rights on the system.
+**Note:** Root is the superuser account in Unix and Linux. It is a user account for administrative purposes, and typically has the highest access rights on the system.
 
 ## 5. Basic server set-up :computer:
 
@@ -178,7 +180,7 @@ By default, SSH runs on port 22. To prevent automated bots and malicious users f
 
 An intelligent attacker would still scan your server to determine open ports and services running on them. However, changing the default SSH port will block thousands of automated attacks that don’t have time to rotate ports when targeting a Linux Server. :grin:
 
-You can choose any available port you like, in this example we will use `Port 3467`. So the first thing we do is making sure our firewall allows this port. As you probably know by know, this can be done with:
+You can choose any available port you like, in this example we will use `Port 3467`. So the first thing we do is making sure our firewall allows this port. As you probably know by now, this can be done with:
 
 ```
 $ ufw allow 3467
@@ -209,14 +211,16 @@ Search for the line that says `#Port 22`:
 #HostKey /etc/ssh/ssh_host_ed25519_key
 ```
 
-Uncomment it and change it to `Port 3467`. Now save the file by using `ctrl + x` and then type y to save and exit. What we now have to do is make sure that we restart the SSH service to apply our new changes. You can do that with the following command:
+Uncomment it and change it to `Port 3467`. Now save the file by using `ctrl + x` and then type `y` to save and exit.
+
+The last thing that we have to do is make sure that we restart the SSH service to apply our new changes. You can do that with the following command:
 
 ```
 $ systemctl restart sshd.service
 ```
 
-> **IMPORTANT!**
-> Whenever you make changes like this **ALWAYS** double check if you can get back into the server first, before you close your terminal session. :exclamation:
+> **IMPORTANT:**
+> Whenever you make changes like this **ALWAYS** double check if you can get back into the server first, before you close your terminal session :exclamation:
 
 So let's see if we can log back into our server through the new port. When you try the following:
 
@@ -224,7 +228,7 @@ So let's see if we can log back into our server through the new port. When you t
 $ ssh root@167.23.10.37
 ```
 
-This will result in a time out or closure of the connection. This is because the `ssh` command default to `Port 22`, however we obviously changed that and therefore it isn't in use anymore. What we have to do then is specifically set the port in our login command. You can do that like so:
+This will result in a host rejection. It's because the `ssh` command defaults to `Port 22`, however we obviously changed that and therefore it isn't in use anymore. What we have to do then is specifically set the port in our login command. You can do that like so:
 
 ```
 $ ssh root@167.23.10.37 -p 3467
@@ -240,11 +244,13 @@ Fortunately for us, Digital Ocean already took care of that because we specified
 
 #### IV. More security practices
 
-There is a lot more to cover, but the steps we discussed in this blog is the bare minimum what I would recommend when setting up a server. The next obvious step is creating a regular user for daily use. Security wise, you can take it further by improving your Firewall, setting up services like Fail2Ban, disabling direct root login, etc. I won't bore you with all of that here :zzz:, but feel free to check out the web for more information about this.
+There is a lot more to cover, but the steps we discussed in this blog is the bare minimum what I would recommend when setting up a server. The next obvious step is creating a regular user for daily use.
+
+Security wise, you can take it further by improving your Firewall, setting up services like Fail2Ban, disabling direct root login, etc. I won't bore you with all of that here :zzz:, but feel free to check out the web for more information about this.
 
 ## Conclusion :zap:
 
-Alright, we took a small dive into the world of server configuration and Sysadmin tasks.
+Alright, we took a small dive into the world of server configuration.
 
 In the next blog post we will go over the things that you need in order to actually serve a webapp on your server. We will also integrate a basic CI pipeline that connects with our droplet that will automatically deploy our changes after pushing it to Github. So stay tuned for that!
 
