@@ -13,13 +13,13 @@ tags:
 
 ## Introduction :point_down:
 
-In two previous blog posts, we explored the ease of deploying serverless functions. These are obviously a great way of removing the hassle of maintaining a server and most of the times, also reducing the running costs.
+In two previous blog posts, we explored the ease of deploying serverless functions. These are obviously a great way of removing the hassle of maintaining a server and most of the times also reducing the running costs.
 
-However besides the whole "serverless hype" we are seeing right now in the tech world, a lot of projects still require a traditional cloud server.
+However besides the whole "serverless hype" we are seeing right now in the tech world, a lot of projects still require a traditional cloud VM.
 
-You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase that well. Luckily for us non-cool folks going "server" instead of "serverless" is just as easy!
+You might need more flexiblity, your app doesn't work well on a serverless set-up or it just doesn't fit your usecase that well. Luckily for us non-cool folks going "server" instead of "serverless" is just as easy! :smile:
 
-Back when I first started coding a couple of years ago this was one of the first pain points I encountered. I had to deploy a simple project and spinned up a server. Immediately I got struck with some questions:
+When I first started coding a couple of years ago, setting up a server was one of the first pain points I encountered. I had to deploy a simple project and spinned up a server. Immediately I got struck with some questions:
 
 - How should I secure this?
 - Initial set-up?
@@ -31,7 +31,7 @@ So let's go over that in this blog post! :rocket:
 
 - Bash/zsh terminal. This can be on your Linux machine, Mac OS or Windows Linux Subsystem
 
-## 1. What are the options :question_mark:
+## 1. What are the options :question:
 
 There are multiple cloud providers available that offer virtual cloud machines. Some of the most wide known:
 
