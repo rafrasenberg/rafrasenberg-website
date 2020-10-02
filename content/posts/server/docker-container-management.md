@@ -348,18 +348,17 @@ Alright so our environment is all configured, let me show you now how easy it is
 
 This is where the magic happens. It took me 2 minutes in total to find a dockerized app on the internet, deploy it and make it available to the world wide web. Can you believe that? **TWO MINUTES!** If all my deployments were that easy..
 
-Anyway, here are the steps I took:
+Anyway, here are the steps I took.
 
-1. Pointed the domain I want to use for the app, to the server
-2. Google'd "docker express starter"
-3. Found a repo and forked it
-4. Switched to the `apps` folder and ran `git clone`
+I pointed the domain I want to use for the app, to the server. For this example I used `express.domain.com`.
+
+After that I google'd "docker express starter" and I found a repo and forked it. Then on the server I switched to the `apps` folder and ran `git clone`
 
 ```
 $ git clone https://github.com/rafrasenberg/docker-express-postgres ./express
 ```
 
-5. Next up is editing the docker compose file of our app:
+After that it was time to edit the `docker-compose.yml` file of our app:
 
 ```yml
 # docker-compose.yml (from the internet repo)
