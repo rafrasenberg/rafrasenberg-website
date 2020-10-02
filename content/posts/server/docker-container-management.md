@@ -13,7 +13,7 @@ tags:
 
 ## Introduction :point_down:
 
-In this blog post we will dive into the world of containers and we will set-up a Traefik v2 reverse proxy along with Portainer and Docker Compose.
+In this blog post we will dive into the world of containers. We will set-up a Traefik v2 reverse proxy along with Portainer, using Docker Compose.
 
 This set-up makes container management & deployment a breeze and the reverse proxy allows for running multiple applications on one Docker host. This really brings down the overall overhead that would normally go along with running multiple docker applications, since everything is managed from one point. :ok_hand:
 
@@ -290,7 +290,7 @@ Then run the below command, replacing the username and password with the one you
 $ echo $(htpasswd -nb <username> <password>)
 ```
 
-Edit the `dynamic.yml` file and add your string `yourusername:$apr1$MTqfVwiE$FKkzDKGSqwH9f3uipxA1` under the `user-auth` middleware as seen in the example code.
+Edit the `dynamic.yml` file and add your auth string under the `user-auth` middleware as seen in the example code.
 
 #### II. Creating the proxy network
 
