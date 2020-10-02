@@ -1,9 +1,11 @@
 ---
 title: "Docker container management with Traefik v2 and Portainer"
+description: "Efficient docker container management and deployment. Learn how to set-up a Traefik v2 reverse proxy along with Portainer, using Docker Compose."
 date: 2020-09-30T12:15:24+02:00
 draft: true
 toc: false
 images:
+  - /images/blog/4/header.png
 tags:
   - dev-ops
   - server
