@@ -29,7 +29,7 @@ As an final example we will deploy a containerized Node.js app into our new envi
 
 ## What is Traefik v2? :white_circle:
 
-Traefik is a modern and lightweight reverse proxy and load balancer that makes deploying microservices easy. It is designed to be as simple as possible to operate, but capable of handling large, highly-complex deployments.
+Traefik is a modern and lightweight reverse proxy and load balancer that makes deploying microservices very easy. It is designed to be as simple as possible to operate, but capable of handling large, highly-complex deployments.
 
 It also comes with a powerful set of middlewares that enhance its capabilities to include load balancing, API gateway, orchestrator ingress, as well as east-west service communication and more. It is written in Go and is packaged as a single binary file and available as a tiny official docker image.
 
@@ -60,18 +60,20 @@ Portainer works by hiding the complexity that makes managing containers hard beh
 
 ## Building our stack :construction:
 
-From this point on I am going to assume you have `docker` and `docker-compose` installed on your server and you are running Ubuntu 20.04. I used a Digital Ocean $5 droplet for this. If you you sign up [through this link](https://m.do.co/c/52031fcadf3c) you can get $100 worth of credit for free on there!
+From this point on I am going to assume you have `docker` and `docker-compose` installed on your server and you are running Ubuntu 20.04. I used a Digital Ocean $5 droplet for this. If you sign up [through this link](https://m.do.co/c/52031fcadf3c) you can get $100 worth of credit for free on there!
 
 #### I. Setting up DNS records
 
-Alright so the first thing to do is setting up the appropiate domains so we can access our Portainer and Traefik dashboard. Just pick one of the domains you have horded over the years :smile: and set them up like this:
+Alright so the first thing to do is setting up the appropiate domains so we can access our Portainer and Traefik dashboard. Just pick one of the domains you have horded over the years :smile:
+
+Set them up like this, point to your server:
 
 ```
 traefik.yourdomain.com
 portainer.yourdomain.com
 ```
 
-In this way our Portainer & Traefik dashboard will be available at the appropiate subdomains.
+In this way our Portainer & Traefik dashboard will be available at the appropriate subdomains.
 
 #### II. Creating a user & setting up the directory
 
@@ -260,7 +262,7 @@ The second label tells us that we should use the network `proxy`, which we will 
 
 The final to last label specifies the API handler. It exposes information such as the configuration of all routers, services, middlewares, etc. To see all the available endpoints you can check [the docs.](https://doc.traefik.io/traefik/v2.3/operations/api/#endpoints)
 
-The very last lable is our basic auth middleware, remember? Because the Traefik dashboard is exposed by default so we add a basic security layer over it. It will also protect our API.
+The very last label is our basic auth middleware, remember? Because the Traefik dashboard is exposed by default so we add a basic security layer over it. It will also protect our API.
 
 ```yml
 labels:
@@ -326,15 +328,15 @@ $ sudo chmod 600 ./traefik-config/acme.json
 
 #### V. Running the stack
 
-Now you can run the stack with the following command. Make sure you are in the `core` folder so docker can find the docker-compose file. On the first run I always like to check the process for errors before we use the docker-compose `--detach` flag. Run the following command:
+Now it is time to run the stack. Make sure you are in the `core` folder so docker can find the docker-compose file. On the first run I always like to check the process for errors before we use the docker-compose `--detach` flag. Run the following command:
 
 ```
 $ sudo docker-compose up
 ```
 
-Right now the Traefik dashboard should be available at `traefik.yourdomain.com` and `portainer.yourdomain.com` awesome! :fire:
+Right now the Traefik dashboard should be available at `traefik.yourdomain.com` and `portainer.yourdomain.com`, awesome! :fire:
 
-Now when you are sure that your containers are running correctly, run them in the background by using the `--detach` option:
+When you are sure that your containers are running correctly, run them in the background by using the `--detach` option:
 
 ```
 $ sudo docker-compose down && sudo docker-compose up -d
@@ -342,22 +344,22 @@ $ sudo docker-compose down && sudo docker-compose up -d
 
 ## Adding docker applications to our server :trophy:
 
-Alright so our environment is all configured, now I am going to show you how easy it is to deploy containers to our new Traefik set-up.
+Alright so our environment is all configured, let me show you now how easy it is to deploy containers to our new Traefik set-up.
 
 This is where the magic happens. It took me 2 minutes in total to find a dockerized app on the internet, deploy it and make it available to the world wide web. Can you believe that? **TWO MINUTES!** If all my deployments were that easy..
 
 Anyway, here are the steps I took:
 
-1. Pointed the domain `express.domain.com` to the server
+1. Pointed the domain I want to use for the app, to the server
 2. Google'd "docker express starter"
 3. Found a repo and forked it
-4. `cd` in the `apps` folder and ran `git clone`
+4. Switched to the `apps` folder and ran `git clone`
 
 ```
 $ git clone https://github.com/rafrasenberg/docker-express-postgres ./express
 ```
 
-5. Next up is editing the `docker-compose.yml` file:
+5. Next up is editing the docker compose file of our app:
 
 ```yml
 # docker-compose.yml (from the internet repo)
