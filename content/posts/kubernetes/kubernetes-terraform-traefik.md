@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes with Terraform & Traefik V2 + cert-manager | Part 1"
 date: 2020-11-21T06:28:07+01:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
@@ -535,7 +535,7 @@ We will then expose the Traefik dashboard to the internet and deploy a simple ex
 
 Next part is coming tomorrow, stay tuned! :heart:
 
-**Sources used for this postt**:
+**Sources used for this post**:
 
 - [Terraform Docs](https://www.terraform.io/docs/index.html)
 - [Stackify Article](https://stackify.com/what-is-infrastructure-as-code-how-it-works-best-practices-tutorials/)
