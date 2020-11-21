@@ -4,8 +4,13 @@ date: 2020-11-21T06:28:07+01:00
 draft: false
 toc: false
 images:
+  - /images/blog/6/header-image.png
 tags:
-  - untagged
+  - kubernetes
+  - terraform
+  - server
+  - cloud
+  - dev-ops
 ---
 
 ## Introduction :pushpin:
