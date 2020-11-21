@@ -535,7 +535,7 @@ We will then expose the Traefik dashboard to the internet and deploy a simple ex
 
 Next part is coming tomorrow, stay tuned! :heart:
 
-**Sources used for this post**:
+**Sources used for this postt**:
 
 - [Terraform Docs](https://www.terraform.io/docs/index.html)
 - [Stackify Article](https://stackify.com/what-is-infrastructure-as-code-how-it-works-best-practices-tutorials/)
