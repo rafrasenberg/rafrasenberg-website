@@ -31,7 +31,7 @@ I categorize every article based on complexity. It's a good way to indicate how 
 
 Back in the day, managing IT infrastructure was a tough job. Sysadmins had to manually configure and manage all the hardware and software that was needed for applications to run.
 
-In recent years, this has changed. Cloud computing has vastly improved over the years and it changed the way organizations design, develop, and maintain their IT infrastructure.
+In recent years, this has changed. Cloud computing has vastly improved and it changed the way organizations design, develop, and maintain their IT infrastructure.
 
 #### What is IaC?
 
@@ -105,7 +105,7 @@ terraform {
 }
 ```
 
-Next up is creating the `terraform.tfvars` file. This will hold all the variables of the infrastructure. Terraform automatically loads the variables in this file then when running the `terraform apply` command, without needing the specify the `-var-file="foo.tfvars"` flag.
+Next up is creating the `terraform.tfvars` file. This will hold all the variables of the infrastructure. Terraform automatically loads the variables in this file when running the `terraform apply` command, without needing the specify the `-var-file="foo.tfvars"` flag.
 
 Best practices when working with larger codebases would be to split this variable file into several variable files each corresponding to a certain part of your configuration. But for the simplicity of this blog post, we will store all of it in one file.
 
@@ -180,7 +180,7 @@ variable "node_min_count" {
 
 Next up is the actual cluster configuration and the connection to the Kubernetes and Helm (the package manager) providers.
 
-If you really want to dive more into Terraform configuration, I highly suggest you should check out the docs of each provider, since it is too much to go over each and every config setting here in this blog. The docs are really good!
+If you really want to dive more into Terraform configuration, I highly suggest to check out the docs of each provider, since it is too much to go over all the config settings here in this blog. The docs are really good!
 
 - [Digital Ocean Provider Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
 - [Helm Provider Docs](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
@@ -234,7 +234,7 @@ provider "helm" {
 }
 ```
 
-Next up is updating our `terraform.tfvars` file to include the new variables. Specify here the region where you want to launch your cluster and things like the node size and min and max count. We will be using Digital Ocean's autoscaling feature, so therefore we are specifying the max and min node count as well.
+Next up is updating our `terraform.tfvars` file to include the new variables. Specify here things like the region where you want to launch your cluster and the node size. We will be using Digital Ocean's autoscaling feature, so therefore we are specifying the max and min node count as well.
 
 ```hcl
 # 1 Backend variables
@@ -283,7 +283,7 @@ We can now officially deploy our cluster by applying our `terraform.tfplan` with
 $ terraform apply "terraform.tfplan"
 ```
 
-This will take some minutes to finish. When logging in to Digital Ocean, you can see your cluster will now be up and running. AWESOME! :party:
+This will take some minutes to finish. When logging in to Digital Ocean, you can see your cluster will now be up and running. AWESOME!
 
 ![Digital Ocean Kubernetes Cluster](/images/blog/6/digital-ocean-kubernetes-cluster.png)
 
@@ -307,7 +307,7 @@ To make Digital Ocean Kubernetes work with the Traefik Helm repository, we need 
 $ mkdir helm-values && cd helm-values && touch traefik.yml
 ```
 
-In this `traefik.yml` file add the following configuration below. This will make sure everything will work properly with `cert-manager`, which will configure later. It also enables the dashboard and will automatically redirect all traffic to TLS.
+In this `traefik.yml` file add the following configuration below. This will make sure everything will work properly with `cert-manager`, which we will configure later on. It also enables the dashboard and will automatically redirect all traffic to TLS.
 
 ```yml
 ingressRoute:
@@ -327,7 +327,7 @@ additionalArguments:
   - "--metrics.prometheus"
 ```
 
-Now it is time to configure our Terraform files. Create a file called `03-ingress.tf`. Like in our previous Terraform file, first declare the variables that we will need:
+Now it is time to configure our Terraform files. Create a file called `03-ingress.tf`. Like in our previous Terraform files, first declare the variables that we will need:
 
 ```hcl {linenos=table,linenostart=1}
 # Variable declaration
@@ -419,7 +419,7 @@ If everything went well, it's time to deploy it!
 $ terraform apply "terraform.tfplan"
 ```
 
-Hoorah :happy: Traefik is deployed!! :rocket:
+Hoorah, Traefik is deployed!! :rocket:
 
 If you check your Digital Ocean dashboard right now and go to the Networking menu, and then the Load Balancers. You'll see a shiny fresh new load balancer there. I hear you thinking, huh? But we didn't deploy that?
 
@@ -524,6 +524,8 @@ Now let's deploy cert-manager.
 ```
 $ terraform apply "terraform.tfplan"
 ```
+
+Your Kubernetes cluster is now up and running with Traefik v2 as the Ingress Controller and cert-manager installed, ready to generate free Let's Encrypt certificates for the domains you will later point to your cluster.
 
 ## Conclusion :zap:
 
