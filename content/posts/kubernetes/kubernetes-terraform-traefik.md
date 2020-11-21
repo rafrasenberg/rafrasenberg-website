@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes with Terraform & Traefik V2 + cert-manager | Part 1"
+description: "Digital Ocean managed Kubernetes through Terraform. Paired with Traefik v2 as the Ingress Controller and cert-manager as the provider for free Let's Encrypts certificates!"
 date: 2020-11-21T06:28:07+01:00
 draft: false
 toc: false
