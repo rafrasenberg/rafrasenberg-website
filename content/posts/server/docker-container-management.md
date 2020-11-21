@@ -13,7 +13,19 @@ tags:
   - docker
 ---
 
-## Introduction :point_down:
+## Introduction :pushpin:
+
+> Article level: **Advanced**
+
+I categorise every article based on the complexity. It's a good way to indicate wether you would be interested in reading this article. Click on the link above to see what this means.
+
+**Prerequisites**
+
+- Ubuntu 20.04 server
+- Docker & Docker-Compose installed
+- Domain name
+
+**What are we creating?**
 
 In this blog post we will dive into the world of containers. We will set-up a Traefik v2 reverse proxy along with Portainer, using Docker Compose.
 
@@ -22,12 +34,6 @@ This set-up makes container management & deployment a breeze and the reverse pro
 Traefik will route all the incoming traffic to the appropriate docker containers and through the open-source app Portainer you can speed up software deployments, troubleshoot problems and simplify migrations.
 
 As an final example we will deploy a containerized Node.js app into our new environment. Exciting, so let's start! :rocket:
-
-#### Prerequisites:
-
-- Basic Linux & Docker understanding
-- Ubuntu 20.04 server with Docker & Docker-Compose installed
-- Domain name
 
 ## What is Traefik v2? :white_circle:
 
