@@ -24,7 +24,7 @@ To follow along with this part, please [follow Part 1 first](https://rafrasenber
 
 With that being said, let's deploy some services to our shiny new Kubernetes cluster! :clap:
 
-> Article experience level: **Advanced**
+> Article experience level: **Intermediate**
 
 I categorize every article based on complexity. It's a good way to indicate how well you can follow along with the article since it determines how deep I will explain certain concepts.
 
@@ -50,7 +50,7 @@ Please follow the docs to install both of these on your machine:
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Install doctl](https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/)
 
-From this moment on I am assuming that you have succesfully installed `kubectl` and authenticated `doctl`.
+From this moment on I am assuming that you have succesfully installed and configured `kubectl` and `doctl`.
 
 When those are installed please visit the Digital Ocean dashboard and go to your cluster. There you will find a command to connect to your cluster, for easy multiple-cluster management.
 
@@ -69,11 +69,11 @@ Notice: Adding cluster credentials to kubeconfig file found in "/home/raf/.kube/
 Notice: Setting current-context to do-ams3-my-special-cluster
 ```
 
-Awesome! Everything is set-up now :fire:
+Great. Everything is set-up now.
 
 ## Testing our cluster and configuration :eyes:
 
-Alright with our Kubernetes cluster succesfully connected, let's run some commands to verify if our install went as we expected.
+Alright with our Kubernetes cluster succesfully connected, let's run some commands to verify if our cluster install went as we expected.
 
 ```
 $ kubectl get nodes
@@ -87,10 +87,12 @@ my-special-cluster-pool-3hkcb   Ready    <none>   3h28m   v1.19.3
 my-special-cluster-pool-3hkcw   Ready    <none>   3h29m   v1.19.3
 ```
 
-As you can see, we can interact with our cluster right now through `kubectl`, so that means we can deploy some services! As you might remember from the previous blog post and what you can see back in your Terraform configuration, is that we deployed two services:
+As you can see, we can interact with our cluster right now through `kubectl`, so that means we can deploy some services!
 
-1. Traefik
-2. cert-manager
+In the previous blog post and what you can see back in your Terraform configuration, is that we deployed two services through Helm:
+
+- Traefik
+- cert-manager
 
 So let's see if they are up and running in our cluster without any errors. Let's check Traefik first.
 
