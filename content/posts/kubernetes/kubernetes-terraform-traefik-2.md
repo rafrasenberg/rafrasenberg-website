@@ -16,7 +16,7 @@ tags:
 
 ## Introduction :pushpin:
 
-This is Part 2 of the Kubernetes blog series. In this part we will deploy and expose the Traefik dashboard to a custom domain. As a bonus we will deploy a small example application as well.
+This is Part 2 of the Kubernetes blog series. In this part, we will deploy and expose the Traefik dashboard to a custom domain. As a bonus, we will deploy a small example application as well.
 
 The domains will be pointed to our external load balancer and we will secure them with Let's Encrypt through cert-manager.
 
@@ -43,14 +43,14 @@ In order to interact with our cluster from our local machine, we need `kubectl` 
 
 The Kubernetes command-line tool, `kubectl`, allows you to run commands against Kubernetes clusters. You can use `kubectl` to deploy applications, inspect and manage cluster resources, and view logs.
 
-Besides the Kubernetes command-line tool we also need `doctl`. This is the official DigitalOcean command-line client. It uses the DigitalOcean API to provide access to most account and Droplet features.
+Besides the Kubernetes command-line tool, we also need `doctl`. This is the official DigitalOcean command-line client. It uses the DigitalOcean API to provide access to most account and Droplet features.
 
 Please follow the docs to install both of these on your machine:
 
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Install doctl](https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/)
 
-From this moment on I am assuming that you have succesfully installed and configured `kubectl` and `doctl`.
+From this moment on I am assuming that you have successfully installed and configured `kubectl` and `doctl`.
 
 When those are installed please visit the Digital Ocean dashboard and go to your cluster. There you will find a command to connect to your cluster, for easy multiple-cluster management.
 
@@ -73,7 +73,7 @@ Great. Everything is set-up now.
 
 ## Testing our cluster and configuration :eyes:
 
-Alright with our Kubernetes cluster succesfully connected, let's run some commands to verify if our cluster install went as we expected.
+Alright with our Kubernetes cluster successfully connected, let's run some commands to verify if our cluster install went as we expected.
 
 ```
 $ kubectl get nodes
@@ -96,7 +96,7 @@ In the previous blog post and what you can see back in your Terraform configurat
 
 So let's see if they are up and running in our cluster without any errors. Let's check Traefik first.
 
-We use the `get svc` (short-hand for `get services`) command to list all services in the default namespace. As you might remember from our Terraform configuration, we created a `traefik` namespace and deployed the Traefik Helm repository into that. So therefore we will specify the `-n` namespace flag, to return all services in that namespace.
+We use the `get svc` (shorthand for `get services`) command to list all services in the default namespace. As you might remember from our Terraform configuration, we created a `traefik` namespace and deployed the Traefik Helm repository into that. So therefore we will specify the `-n` namespace flag, to return all services in that namespace.
 
 ```
 $ kubectl get svc -n traefik
@@ -109,7 +109,7 @@ NAME      TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)                
 traefik   LoadBalancer   10.245.173.208   64.225.81.60   80:31782/TCP,443:31660/TCP   3h31m
 ```
 
-Awesome! Our Traefik LoadBalancer is succesfully running as you can see.
+Awesome! Our Traefik LoadBalancer is successfully running as you can see.
 
 The above output lists the Cluster-IP, the External-IP as well as the target and node-ports the service is running on.
 
@@ -133,7 +133,7 @@ As you can see, all is up and running! :rocket:
 
 ## Deploying the ClusterIssuer
 
-The first thing we need to do first, is deploying the ClusterIssuer that will generate free SSL certificates for us.
+The first thing we need to do first is deploying the ClusterIssuer that will generate free SSL certificates for us.
 
 #### What is a ClusterIssuer?
 
@@ -141,7 +141,7 @@ Issuers, and ClusterIssuers, are Kubernetes resources that represent certificate
 
 If you want to create a single Issuer that can be consumed in multiple namespaces, you should consider creating a ClusterIssuer resource. This is almost identical to the Issuer resource, however is non-namespaced so it can be used to issue Certificates across all namespaces.
 
-For this we will be using ClusterIssuer.
+For this, we will be using ClusterIssuer.
 
 Let's create the `post-deployment` folder and in there a `01-cert-manager` folder with a `01-issuer.yml` file:
 
@@ -174,7 +174,7 @@ As you can see from the configuration, we are using a `http01` solver here. `cer
 - DNS Validation
 - HTTP Validation
 
-When working with different kind of domains, a HTTP01 validation is the easiest. With a HTTP01 challenge, you prove ownership of a domain by ensuring that a particular file is present at the domain. It is assumed that you control the domain if you are able to publish the given file under a given path.
+When working with different kinds of domains, a HTTP01 validation is the easiest. With a HTTP01 challenge, you prove ownership of a domain by ensuring that a particular file is present at the domain. It is assumed that you control the domain if you are able to publish the given file under a given path.
 
 DNS validation on the other hand is very useful when you are working with an organization's domain name and you would like to deploy services on subdomains like so: `*.yourdomain.com`. You can then generate a wildcard certificate and solve the DNS challenge through services like Cloudflare or AWS Route53.
 
@@ -189,17 +189,17 @@ additionalArguments:
 
 Now you know what that is for! :smile:
 
-Finally let's deploy our ClusterIssuer through `kubectl`:
+Finally, let's deploy our ClusterIssuer through `kubectl`:
 
 ```
 $ kubectl apply -f post-deployment/01-cert-manager/01-issuer.yml
 ```
 
-Now with our ClusterIssuer succesfully in place, we can start generating certificates for our services.
+Now with our ClusterIssuer successfully in place, we can start generating certificates for our services.
 
 ## Exposing the Traefik dashboard
 
-In order to access the Traefik dashboard, you will need a domain name pointing to the load balancer's external IP. You can check wich IP that is with the `kubectl get svc -n traefik` command that we explained earlier.
+To access the Traefik dashboard, you will need a domain name pointing to the load balancer's external IP. You can check which IP that is with the `kubectl get svc -n traefik` command that we explained earlier.
 
 Then in your registrar panel just add an `A` record point to that IP address.
 
@@ -277,7 +277,7 @@ $ touch post-deployment/02-traefik/01-middleware.yml post-deployment/02-traefik/
 
 Because the Traefik dashboard is exposed to the whole outside world by default, we will add a general Kubernetes secret and a Traefik middleware to create simple basic auth protection.
 
-You can add your own password there ofcourse, by using a tool like `htpassword`. Traefik supports passwords hashed with MD5, SHA1, or BCrypt.
+You can add your own password there of course, by using a tool like `htpassword`. Traefik supports passwords hashed with MD5, SHA1, or BCrypt.
 
 In `middleware.yml` add the following:
 
@@ -329,7 +329,7 @@ spec:
 
 #### Let's deploy :rocket:
 
-Alright with everything prepared now, lets deploy our Ingress route and expose the Traefik dashboard! By running the command below, `kubectl` will first apply the middleware and then deploy the ingress route.
+Alright with everything prepared now, let's deploy our Ingress route and expose the Traefik dashboard! By running the command below, `kubectl` will first apply the middleware and then deploy the ingress route.
 
 ```
 $ kubectl apply -f post-deployment/02-traefik/
@@ -337,17 +337,17 @@ $ kubectl apply -f post-deployment/02-traefik/
 
 BOOM! We got it up and running. :dart:
 
-If you follow the domain name name you will be greeted with a TLS encrypted route to the Traefik dashboard. After entering the basic auth username and password, the dashboard will be displayed. Awesome!
+If you follow the domain name you will be greeted with a TLS encrypted route to the Traefik dashboard. After entering the basic auth username and password, the dashboard will be displayed. Awesome!
 
 ![Traefik Dashboard](/images/blog/7/traefik-dashboard-1.png)
 
-As you can see when you go to HTTP you can see our dashboard route is safely secured with TLS and Traefik recognises it as a Kubernetes route.
+As you can see when you go to HTTP you can see our dashboard route is safely secured with TLS and Traefik recognizes it as a Kubernetes route.
 
 ![Traefik HTTP Routers](/images/blog/7/traefik-dashboard-2.png)
 
 ## An example application
 
-With the dashboard up and running, let's deploy an example `whoami` application with TLS encryption. The first thing you have to do again, is add a DNS entry for the `whoami` service. Then add the appropriate folder and files:
+With the dashboard up and running, let's deploy an example `whoami` application with TLS encryption. The first thing you have to do again, is to add a DNS entry for the `whoami` service. Then add the appropriate folder and files:
 
 ```
 $ mkdir post-deployment/03-whoami
@@ -438,7 +438,7 @@ spec:
     secretName: whoami-cert
 ```
 
-Alright so before we are generating the certficate again, don't forget to create the `whoami` namespace, since we are deploying to that and it isn't there yet.
+Alright so before we are generating the certificate again, don't forget to create the `whoami` namespace, since we are deploying to that and it isn't there yet.
 
 ```
 $ kubectl create namespace whoami
@@ -456,7 +456,7 @@ Wait for some time and see if it is successfully issued:
 $ kubectl -n whoami describe certificate whoami-cert
 ```
 
-If everything thing went well and your certificate was succesfully issued, deploy the `whoami` service:
+If everything thing went well and your certificate was successfully issued, deploy the `whoami` service:
 
 ```
 $ kubectl apply -f post-deployment/03-whoami/
@@ -476,7 +476,7 @@ Alright so in this blog post we configured our cluster further.
 
 We exposed the Traefik dashboard and deployed an example application to our Kubernetes cluster. Of course, now it is time to build on this. The issuing of certificates and deployment of the ingress routes, for example, is something that can be automated as well.
 
-However for now we will leave it to this, and hopefully you learned enough from it so that you can build out your Kubernetes cluster yourself. In the future I will definitely post some more about it.
+However for now we will leave it to this, and hopefully, you learned enough from it so that you can build out your Kubernetes cluster yourself. In the future, I will definitely post some more about it.
 
 See you next time! :wave:
 
