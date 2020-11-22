@@ -91,7 +91,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 Alright, so the first thing we are going to do is prepare our workspace. Let's create a folder and `cd` into it.
 
-```
+```sh-session
 $ mkdir do-k8-config && cd do-k8-config
 ```
 
@@ -144,7 +144,7 @@ provider "digitalocean" {
 
 Your current folder structure should look like this right now:
 
-```
+```sh-session
 .
 └── do-k8-config/
     ├── 01-backend.tf
@@ -261,7 +261,7 @@ Before we can deploy our cluster, we will need to run the `terraform init` comma
 
 This will initialize our Terraform workspace. It is used to initialize a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control.
 
-```
+```sh-session
 $ terraform init
 ```
 
@@ -277,7 +277,7 @@ If Terraform detects no changes to the resource or the root module output values
 
 So let's create our execution plan! :zap:
 
-```
+```sh-session
 $ terraform plan -out=terraform.tfplan
 ```
 
@@ -285,7 +285,7 @@ If this lead to no errors then everything went well! :smile: You can always chec
 
 We can now officially deploy our cluster by applying our `terraform.tfplan` with the following command:
 
-```
+```sh-session
 $ terraform apply "terraform.tfplan"
 ```
 
@@ -309,7 +309,7 @@ We will be installing Traefik v2 through the official Helm repository. Helm is a
 
 To make Digital Ocean Kubernetes work with the Traefik Helm repository, we need some custom configuration. Create a folder called `helm-values` and within that folder create a file called `traefik.yml`.
 
-```
+```sh-session
 $ mkdir helm-values && cd helm-values && touch traefik.yml
 ```
 
@@ -398,7 +398,7 @@ ingress_gateway_chart_version         = "9.8.3"
 
 Now it's time to create our execution plan and deploy our new Ingress controller to our Kubernetes cluster! As a sanity check, this is what your current folder structure should look like:
 
-```
+```sh-session
 .
 └── do-k8-config/
     ├── .terraform/
@@ -415,13 +415,13 @@ Now it's time to create our execution plan and deploy our new Ingress controller
 
 Alright with that out of the way, let's create our new plan:
 
-```
+```sh-session
 $ terraform plan -out=terraform.tfplan
 ```
 
 If everything went well, it's time to deploy it!
 
-```
+```sh-session
 $ terraform apply "terraform.tfplan"
 ```
 
@@ -521,13 +521,13 @@ cert_manager_chart_version            = "1.0.4"
 
 And at last, you guessed it right, create our execution plan again!
 
-```
+```sh-session
 $ terraform plan -out=terraform.tfplan
 ```
 
 Now let's deploy cert-manager.
 
-```
+```sh-session
 $ terraform apply "terraform.tfplan"
 ```
 

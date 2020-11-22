@@ -275,7 +275,7 @@ $ mkdir post-deployment/02-traefik
 $ touch post-deployment/02-traefik/01-middleware.yml post-deployment/02-traefik/02-ingress.yml
 ```
 
-Because the Traefik dashboard is exposed to the whole outside world by default, we will add a general Kubernetes secret and a Traefik middleware to create simple basic auth protection.
+Because the Traefik dashboard is exposed by default, we will add a general Kubernetes secret and a Traefik middleware to create simple basic auth protection.
 
 You can add your own password there of course, by using a tool like `htpassword`. Traefik supports passwords hashed with MD5, SHA1, or BCrypt.
 
@@ -301,7 +301,7 @@ spec:
     secret: traefik-dashboard-auth
 ```
 
-Now add the ingress route configuration in `02-ingress.yml`, ofcourse changing your domain name again:
+Now add the ingress route configuration in `02-ingress.yml`, of course changing your domain name again:
 
 ```yml
 ---
@@ -341,7 +341,7 @@ If you follow the domain name you will be greeted with a TLS encrypted route to 
 
 ![Traefik Dashboard](/images/blog/7/traefik-dashboard-1.png)
 
-As you can see when you go to HTTP you can see our dashboard route is safely secured with TLS and Traefik recognizes it as a Kubernetes route.
+As you can see when you view the HTTP routers, you can see our dashboard route is safely secured with TLS and Traefik recognizes it as a Kubernetes route.
 
 ![Traefik HTTP Routers](/images/blog/7/traefik-dashboard-2.png)
 
@@ -355,7 +355,7 @@ $ touch post-deployment/certificates/whoami.yml
 $ touch post-deployment/03-whoami/01-whoami.yml post-deployment/03-whoami/02-ingress.yml
 ```
 
-The first thing we do is creating a new certificate. So add this to `post-deployment/certificates/whoami.yml`:
+Time to create a new certificate. So add this to `post-deployment/certificates/whoami.yml`:
 
 ```yml
 ---
@@ -474,7 +474,7 @@ You can see the service in the Traefik dashboard now as well:
 
 Alright so in this blog post we configured our cluster further.
 
-We exposed the Traefik dashboard and deployed an example application to our Kubernetes cluster. Of course, now it is time to build on this. The issuing of certificates and deployment of the ingress routes, for example, is something that can be automated as well.
+We exposed the Traefik dashboard and deployed an example application. Of course, now it is time to build on this. The issuing of certificates and deployment of the ingress routes, for example, is something that can be automated as well.
 
 However for now we will leave it to this, and hopefully, you learned enough from it so that you can build out your Kubernetes cluster yourself. In the future, I will definitely post some more about it.
 
