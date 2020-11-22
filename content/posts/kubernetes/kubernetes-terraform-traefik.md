@@ -539,7 +539,7 @@ Alright so we have our Kubernetes cluster up and running and Traefik and cert-ma
 
 We will then expose the Traefik dashboard to the internet and deploy a simple example app as well, both running behind the Digital Ocean load balancer and fully TLS encrypted. Exciting!
 
-Next part is coming tomorrow, stay tuned! :heart:
+For Part 2, [follow this link.](https://rafrasenberg.com/posts/using-traefik-as-ingress-controller-on-a-kubernetes-cluster-with-cert-manager-part-2/)
 
 **Sources used for this post**:
 
