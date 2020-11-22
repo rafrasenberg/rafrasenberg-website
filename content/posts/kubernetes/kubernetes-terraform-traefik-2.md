@@ -5,7 +5,7 @@ date: 2020-11-22T06:27:18+01:00
 draft: false
 toc: false
 images:
-  - /images/blog/6/header-image.png
+  - /images/blog/7/header-image.png
 tags:
   - kubernetes
   - terraform
