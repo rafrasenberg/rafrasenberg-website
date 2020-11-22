@@ -1,6 +1,6 @@
 ---
 title: "Using Traefik as Ingress Controller on a Kubernetes cluster with cert-manager | Part 2"
-description: "Part 2 of the Kubernetes mini blog series. In this part we deploy the Traefik dashboard and an example application to our cluster, fully TLS encrypted."
+description: "Part 2 of the Kubernetes blog series. In this part we deploy the Traefik dashboard and an example application to our cluster, fully TLS encrypted."
 date: 2020-11-22T06:27:18+01:00
 draft: false
 toc: false
@@ -16,7 +16,9 @@ tags:
 
 ## Introduction :pushpin:
 
-This is Part 2 of the managed Kubernetes cluster mini blog series. In this part we will deploy and expose the Traefik dashboard to the outside world and deploy an example application to our cluster. Both routing them from a custom domain to our external load balancer and securing them with Let's Encrypt through cert-manager.
+This is Part 2 of the Kubernetes blog series. In this part we will deploy and expose the Traefik dashboard to a custom domain. As a bonus we will deploy a small example application as well.
+
+The domains will be pointed to our external load balancer and we will secure them with Let's Encrypt through cert-manager.
 
 To follow along with this part, please [follow Part 1 first](https://rafrasenberg.com/posts/kubernetes-with-terraform-traefik-v2-cert-manager-part-1/).
 
