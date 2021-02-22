@@ -30,7 +30,7 @@ I categorize every article based on complexity. It's a good way to indicate how 
 - AWS account
 - AWS CLI set-up
 
-:point_right: [The Github repo for this blog post](https://github.com/rafrasenberg/kubernetes-terraform-traefik-cert-manager)
+:point_right: [The Github repo for this blog post](https://github.com/rafrasenberg/fastapi-lamba-aws)
 
 ## AWS Lambda container image :cloud:
 
