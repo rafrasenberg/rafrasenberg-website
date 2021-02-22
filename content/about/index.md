@@ -6,22 +6,24 @@ draft: true
 
 ## Coding
 
-I am Raf Rasenberg, a Dutch 🇳🇱 Software Engineer & Business Owner. I help businesses and start-ups with building out efficient web applications using mainly Django & JavaScript.
+I am Raf Rasenberg, a Dutch 🇳🇱 Software Engineer with 4 years of experience and a big passion for back-end, cloud, and anything DevOps related. Configuring CI/CD pipelines, Kubernetes, serverless and IaC to name a few buzz words.
 
-Started out with making websites in WordPress in 2018 and gradually moved away from this, focussing on custom web applications and CMS systems. Since then the projects have become larger, more varied and more complex. To see some of the recent projects I shipped through my company, [follow this link](https://webconexus.com/cases/).
+I focus on delivering high-quality (containerized) -and mostly serverless- software solutions, using clean code methods like TDD in agile environments. Big fan of Linux!
 
-I'm a big lover of everything back-end and DevOps related. CI/CD pipelines, Kubernetes and Cloud to name some of the IT buzz words. Coming from a business background, non-technical communication and focus on cost-efficient solutions is one my key skills.
+Coming from a business background, non-technical communication and focus on cost-efficient solutions is one my key skills.
 
-#### Skills
+#### Core expertise
 
-- **Front-end:** JavaScript, HTML/SCSS
-- **Back-end:** Python, Django, Flask, PostgreSQL
-- **CMS:** Wagtail CMS, WordPress
-- **Cloud:** AWS, GCP, Digital Ocean
-- **Dev-Ops:** Docker, Kubernetes, Terraform
-- **Other:** Linux, Bash
+- Python
+- AWS
+- Serverless
+- Docker
+- Kubernetes
+- JavaScript
 
-> :email: Interested in working together? Shoot me a message: hello@rafrasenberg.com
+Worked a lot with the frameworks Django, Flask and FastAPI for Python. I enjoy using TypeScript for type safety, and if needed Svelte as an easy JS framework to add interactivy to an app while keeping a minimal bundle size and a code base with a low complexity level.
+
+Currently working as an AWS Cloud Engineer :cloud: at [InQdo Cloud](https://www.inqdo.com/cloud/?lang=en) in The Netherlands.
 
 ## Personal interests
 
