@@ -1,5 +1,6 @@
 ---
 title: "Deploying FastAPI on AWS as a lambda container image"
+description: "Setting up a serverless Lambda container image on AWS running FastAPI. It will be a single Lambda function with an API gateway endpoint attached to it."
 date: 2021-02-21T15:07:13+01:00
 draft: false
 toc: false
