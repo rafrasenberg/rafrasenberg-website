@@ -59,7 +59,7 @@ disableHugoGeneratorInject = false
   keywords = ""
   images = [""]
 
-  homeSubtitle = "Software Engineer | Business Owner"
+  homeSubtitle = "Software Engineer"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = ""
@@ -107,10 +107,6 @@ disableHugoGeneratorInject = false
   [[params.social]]
     name = "github"
     url  = "https://github.com/rafrasenberg"
-
-  [[params.social]]
-    name = "email"
-    url  = "mailto:rafrasenberg@gmail.com"
 
 
 
